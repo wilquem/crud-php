@@ -13,7 +13,7 @@
         $endereco = $_POST['endereco'];
 
         $result = mysqli_query($conexao, "INSERT INTO infousuarios(nome,sobrenome,email,senha,sexo,estado,cidade,endereco) VALUES ('$nome','$sobrenome','$email','$senha','$sexo','$estado','$cidade','$endereco')");
-
+        $sql = header('location:login.php') OR die(mysql_error($conexao));
     }
 ?>
 
@@ -46,17 +46,17 @@
 
     <div class="container">
 
-        <form class="container-" action="index.php" method="POST">
+        <form class="container-" id="formulario" name="formulario" action="index.php" method="POST">
             <!-- Nome e Sorbenome -->
             <div class="row g-3">
                 <div class="col-sm-6">
                     <label for="nome" class="form-label">Nome</label>
-                    <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome" required>
+                    <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome">
                     <div class="invalid-feedback">Nome obrigatório.</div>
                 </div>
                 <div class="col-sm-6">
                     <label for="sobrenome" class="form-label">Sobrenome</label>
-                    <input id="sobrenome" name="sobrenome" type="text" class="form-control" placeholder="Sobrenome">
+                    <input id="sobrenome" name="sobrenome" type="text" class="form-control" placeholder="Sobrenome" required>
                     <div class="invalid-feedback"></div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="col-sm-6">
                     <label for="senhaConf" class="form-label">Confirmar senha</label>
-                    <input id="senhaConf" name="senhaConf" type="password" class="form-control" placeholder="" required>
+                    <input id="senhaConf" name="senhaConf" type="password" class="form-control" placeholder="">
                     <div class="invalid-feedback">Confirmação obrigatório.</div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                         <option value="rs">RS</option>
                         <option value="sp">SP</option>
                     </select>
-                    <div class="invalid-feedback danger">Estado obrigatório</div>
+                    <div class="invalid-feedback">Estado obrigatório</div>
                 </div>
                 <!-- Cidade -->
                 <div class="col-md-4 mt-2">
@@ -127,21 +127,21 @@
                 <div class="col-md-4 mt-2">
                     <label for="endereco" class="form-label">Endereço</label>
                     <input id="endereco" name="endereco" type="text" class="form-control" placeholder="" required>
-                    <div class="invalid-feedback"></div>
+                    <p class="invalid-feedback"></p>
                 </div>
             </div>
             <!-- Botão -->
-            <a href="login.php">
             <div class="d-grid gap-2 col-6 mx-auto mt-4" style="margin-bottom: 5rem;">
-                <input class="btn btn-outline-primary" name="submit" id="submit" type="submit" value="Enviar"></input>
+                <input class="btn btn-outline-primary" name="submit" id="submit" type="submit" value="Enviar" onclick="validar()"></input>
             </div>
-            </a>
         </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
+    <script src="script_index.js"></script>
 
 </body>
 
