@@ -1,18 +1,20 @@
 <?php 
-    if(isset($_POST['submit'])){
-        $sql="SELECT * from `infousuarios` where id=$id";
-        $result=mysqli_query($conexao,$sql);
-        $row=mysqli_fetch_assoc($result);
-        $nome=$row['nome'];
-        $email=$row['email'];
-        $senha=$row['senha'];
-        $sexo=$row['genero'];
-        $estado=$row['estado'];
-        $cidade=$row['cidade'];
-        $endereco=$row['endereco'];
+    include('config.php');
+    $id=$_GET['updateid'];
+    $sql="SELECT * from `infousuarios` where id=$id";
+    $result=mysqli_query($conexao,$sql);
+    $row=mysqli_fetch_assoc($result);
+    $nome=$row['nome'];
+    $email=$row['email'];
+    $senha=$row['senha'];
+    $sexo=$row['sexo'];
+    $estado=$row['estado'];
+    $cidade=$row['cidade'];
+    $endereco=$row['endereco'];
 
+    if(isset($_POST['submit'])){
+        
         include_once('config.php');
-        $id=$_GET['updateid'];
         $nome = $_POST['nome'];
         $sobrenome = $_POST['sobrenome'];
         $email = $_POST['email'];
@@ -61,12 +63,12 @@
 
     <div class="container">
 
-        <form class="container" method="POST">
+        <form class="container" method="POST" >
             <!-- Nome e Sorbenome -->
             <div class="row g-3">
                 <div class="col-sm-6">
                     <label for="nome" class="form-label">Nome</label>
-                    <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome">
+                    <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome" autocomplete="off" value="<?php echo $nome ; ?>">
                     <div class="invalid-feedback danger">Nome obrigatório.</div>
                 </div>
                 <div class="col-sm-6">
@@ -78,19 +80,19 @@
             <!-- E-mail -->
             <div class="col mt-2">
                 <label for="email" class="form-label">E-mail</label>
-                <input id="email" name="email" type="email" class="form-control" placeholder="mail@mail.com">
+                <input id="email" name="email" type="email" class="form-control" placeholder="mail@mail.com" value="<?php echo $email ; ?>">
                 <div class="invalid-feedback danger">E-mail obrigatório.</div>
             </div>
             <!-- Senha -->
             <div class="row g-3 mt-0.5">
                 <div class="col-sm-6">
-                    <label for="senha" class="form-label">Senha</label>
+                    <label for="senha" class="form-label">Senha nova</label>
                     <input id="senha" name="senha" type="password" class="form-control" placeholder="" >
                     <div class="invalid-feedback danger">Senha obrigatório.</div>
                 </div>
                 <div class="col-sm-6">
-                    <label for="senhaConf" class="form-label">Confirmar senha</label>
-                    <input id="senhaConf" name="senhaConf" type="password" class="form-control" placeholder="" >
+                    <label for="senhaConf" class="form-label">Senha antiga</label>
+                    <input id="senhaConf" name="senhaConf" type="text" class="form-control" placeholder="" value="<?php echo $senha ; ?>">
                     <div class="invalid-feedback danger">Confirmação obrigatório.</div>
                 </div>
             </div>
@@ -135,13 +137,13 @@
                 <!-- Cidade -->
                 <div class="col-md-4 mt-2">
                     <label for="cidade" class="form-label">Cidade</label>
-                    <input id="cidade" name="cidade" type="text" class="form-control" placeholder="" >
+                    <input id="cidade" name="cidade" type="text" class="form-control" placeholder="" value="<?php echo $cidade ; ?>" >
                     <div class="invalid-feedback danger">Cidade obrigatório</div>
                 </div>
                 <!-- Endereço -->
                 <div class="col-md-4 mt-2">
                     <label for="endereco" class="form-label">Endereço</label>
-                    <input id="endereco" name="endereco" type="text" class="form-control" placeholder="">
+                    <input id="endereco" name="endereco" type="text" class="form-control" placeholder="" value="<?php echo $endereco ; ?>">
                     <div class="invalid-feedback danger"></div>
                 </div>
             </div>
@@ -155,15 +157,12 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
+    <script>
 
-    <a ></a>
+    </script>
 </body>
 
 </html>
