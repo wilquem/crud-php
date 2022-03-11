@@ -32,7 +32,7 @@ function customValidation(event) {
 
         if(error) {
             spanError.classList.add("active");
-            spanError.innerHTML = "Campo Obrigatório"
+            spanError.innerHTML = "*Campo Obrigatório*"
         } else {
             spanError.classList.remove("active");
             spanError.innerHTML = ""

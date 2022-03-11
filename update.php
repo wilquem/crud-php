@@ -46,6 +46,9 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Styles -->
     <style>
+        .active {
+            color: red;
+        }
     </style>
 
     <title>Cadastro</title>
@@ -68,32 +71,32 @@
             <div class="row g-3">
                 <div class="col-sm-6">
                     <label for="nome" class="form-label">Nome</label>
-                    <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome" autocomplete="off" value="<?php echo $nome ; ?>">
-                    <div class="invalid-feedback danger">Nome obrigatório.</div>
+                    <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome" autocomplete="off" value="<?php echo $nome ; ?>" required>
+                    <span class="error"></span>
                 </div>
                 <div class="col-sm-6">
                     <label for="sobrenome" class="form-label">Sobrenome</label>
-                    <input id="sobrenome" name="sobrenome" type="text" class="form-control" placeholder="Sobrenome">
-                    <div class="invalid-feedback danger">Sobrenome obrigatório.</div>
+                    <input id="sobrenome" name="sobrenome" type="text" class="form-control" placeholder="Sobrenome" required>
+                    <span class="error"></span>
                 </div>
             </div>
             <!-- E-mail -->
             <div class="col mt-2">
                 <label for="email" class="form-label">E-mail</label>
-                <input id="email" name="email" type="email" class="form-control" placeholder="mail@mail.com" value="<?php echo $email ; ?>">
-                <div class="invalid-feedback danger">E-mail obrigatório.</div>
+                <input id="email" name="email" type="email" class="form-control" placeholder="mail@mail.com" value="<?php echo $email ; ?>" required>
+                <span class="error"></span>
             </div>
             <!-- Senha -->
             <div class="row g-3 mt-0.5">
                 <div class="col-sm-6">
                     <label for="senha" class="form-label">Senha nova</label>
-                    <input id="senha" name="senha" type="password" class="form-control" placeholder="" >
-                    <div class="invalid-feedback danger">Senha obrigatório.</div>
+                    <input id="senha" name="senha" type="password" class="form-control" placeholder="" required>
+                    <span class="error"></span>
                 </div>
                 <div class="col-sm-6">
                     <label for="senhaConf" class="form-label">Senha antiga</label>
-                    <input id="senhaConf" name="senhaConf" type="text" class="form-control" placeholder="" value="<?php echo $senha ; ?>">
-                    <div class="invalid-feedback danger">Confirmação obrigatório.</div>
+                    <input id="senhaConf" name="senhaConf" type="text" class="form-control" placeholder="" value="<?php echo $senha ; ?>" required>
+                    <span class="error"></span>
                 </div>
             </div>
             <!-- Genero -->
@@ -123,7 +126,7 @@
                 <div class="col-md-4 mt-2">
                     <!-- Estado -->
                     <label for="estado" class="form-label">Estado</label>
-                    <select name="estado" id="estado" class="form-control" >
+                    <select name="estado" id="estado" class="form-control" required>
                         <option selected>Escolha...</option>
                         <option value="am">AM</option>
                         <option value="ba">BA</option>
@@ -132,19 +135,19 @@
                         <option value="rs">RS</option>
                         <option value="sp">SP</option>
                     </select>
-                    <div class="invalid-feedback danger">Estado obrigatório</div>
+                    <span class="error"></span>
                 </div>
                 <!-- Cidade -->
                 <div class="col-md-4 mt-2">
                     <label for="cidade" class="form-label">Cidade</label>
-                    <input id="cidade" name="cidade" type="text" class="form-control" placeholder="" value="<?php echo $cidade ; ?>" >
-                    <div class="invalid-feedback danger">Cidade obrigatório</div>
+                    <input id="cidade" name="cidade" type="text" class="form-control" placeholder="" value="<?php echo $cidade ; ?>" required>
+                    <span class="error"></span>
                 </div>
                 <!-- Endereço -->
                 <div class="col-md-4 mt-2">
                     <label for="endereco" class="form-label">Endereço</label>
-                    <input id="endereco" name="endereco" type="text" class="form-control" placeholder="" value="<?php echo $endereco ; ?>">
-                    <div class="invalid-feedback danger"></div>
+                    <input id="endereco" name="endereco" type="text" class="form-control" placeholder="" value="<?php echo $endereco ; ?>" required>
+                    <span class="error"></span>
                 </div>
             </div>
             <!-- Botão -->
