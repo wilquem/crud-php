@@ -160,9 +160,7 @@
         crossorigin="anonymous">
     </script>
 
-    <script>
-
-    </script>
+    <script src="script_index.js"></script>
 </body>
 
 </html>

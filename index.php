@@ -29,6 +29,9 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Styles -->
     <style>
+        .active {
+            color: red;
+        }
     </style>
 
     <title>Cadastro</title>
@@ -51,32 +54,32 @@
             <div class="row g-3">
                 <div class="col-sm-6">
                     <label for="nome" class="form-label">Nome</label>
-                    <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome">
-                    <div class="invalid-feedback">Nome obrigatório.</div>
+                    <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome" required>
+                    <span class="error"></span>
                 </div>
                 <div class="col-sm-6">
                     <label for="sobrenome" class="form-label">Sobrenome</label>
                     <input id="sobrenome" name="sobrenome" type="text" class="form-control" placeholder="Sobrenome" required>
-                    <div class="invalid-feedback"></div>
+                    <span class="error"></span>
                 </div>
             </div>
             <!-- E-mail -->
             <div class="col mt-2">
                 <label for="email" class="form-label">E-mail</label>
                 <input id="email" name="email" type="email" class="form-control" placeholder="mail@mail.com" required>
-                <div class="invalid-feedback">E-mail obrigatório.</div>
+                <span class="error"></span>
             </div>
             <!-- Senha -->
             <div class="row g-3 mt-0.5">
                 <div class="col-sm-6">
                     <label for="senha" class="form-label">Senha</label>
                     <input id="senha" name="senha" type="password" class="form-control" placeholder="" required>
-                    <div class="invalid-feedback">Senha obrigatório.</div>
+                    <span class="error"></span>
                 </div>
                 <div class="col-sm-6">
                     <label for="senhaConf" class="form-label">Confirmar senha</label>
-                    <input id="senhaConf" name="senhaConf" type="password" class="form-control" placeholder="">
-                    <div class="invalid-feedback">Confirmação obrigatório.</div>
+                    <input id="senhaConf" name="senhaConf" type="password" class="form-control" placeholder="" required>
+                    <span class="error"></span>
                 </div>
             </div>
             <!-- Genero -->
@@ -107,7 +110,7 @@
                     <!-- Estado -->
                     <label for="estado" class="form-label">Estado</label>
                     <select name="estado" id="estado" class="form-control" required>
-                        <option selected>Escolha...</option>
+                        <option value="" selected>Escolha...</option>
                         <option value="am">AM</option>
                         <option value="ba">BA</option>
                         <option value="mg">MG</option>
@@ -115,24 +118,24 @@
                         <option value="rs">RS</option>
                         <option value="sp">SP</option>
                     </select>
-                    <div class="invalid-feedback">Estado obrigatório</div>
+                    <span class="error"></span>
                 </div>
                 <!-- Cidade -->
                 <div class="col-md-4 mt-2">
                     <label for="cidade" class="form-label">Cidade</label>
                     <input id="cidade" name="cidade" type="text" class="form-control" placeholder="" required>
-                    <div class="invalid-feedback">Cidade obrigatório</div>
+                    <span class="error"></span>
                 </div>
                 <!-- Endereço -->
                 <div class="col-md-4 mt-2">
                     <label for="endereco" class="form-label">Endereço</label>
                     <input id="endereco" name="endereco" type="text" class="form-control" placeholder="" required>
-                    <p class="invalid-feedback"></p>
+                    <span class="error"></span>
                 </div>
             </div>
             <!-- Botão -->
             <div class="d-grid gap-2 col-6 mx-auto mt-4" style="margin-bottom: 5rem;">
-                <input class="btn btn-outline-primary" name="submit" id="submit" type="submit" value="Enviar" onclick="validar()"></input>
+                <input class="btn btn-outline-primary" name="submit" id="submit" type="submit" value="Enviar"></input>
             </div>
         </form>
     </div>
